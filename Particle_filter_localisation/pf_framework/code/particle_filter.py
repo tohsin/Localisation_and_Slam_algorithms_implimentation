@@ -223,17 +223,17 @@ def main():
     # implementation of a particle filter for robot pose estimation
 
     print ("Reading landmark positions")
-    landmarks = read_world("/data/world.dat")
+    landmarks = read_world("Particle_filter_localisation/pf_framework/data/world.dat")
 
     print ("Reading sensor data")
-    sensor_readings = read_sensor_data("/data/sensor_data.dat")
+    sensor_readings = read_sensor_data("Particle_filter_localisation/pf_framework/data/sensor_data.dat")
 
     #initialize the particles
     map_limits = [-1, 12, 0, 10]
     particles = initialize_particles(1000, map_limits)
 
     #run particle filter
-    for timestep in range(len(sensor_readings)/2):
+    for timestep in range(len(sensor_readings)//2):
 
         #plot the current state
         plot_state(particles, landmarks, map_limits)
