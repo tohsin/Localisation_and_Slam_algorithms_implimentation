@@ -163,10 +163,11 @@ def main():
     # implementation of an extended Kalman filter for robot pose estimation
 
     print( "Reading landmark positions")
-    landmarks = read_world("data/world.dat")
+    landmarks = read_world("EKF_Localisation_algorithm_assesment/data/world.dat")
 
     print ("Reading sensor data")
-    sensor_readings = read_sensor_data("data/sensor_data.dat")
+    # sensor_readings = read_sensor_data("data/sensor_data.dat")
+    sensor_readings = read_sensor_data("EKF_Localisation_algorithm_assesment/data/sensor_data.dat")
 
     #initialize belief
     mu = [0.0, 0.0, 0.0]

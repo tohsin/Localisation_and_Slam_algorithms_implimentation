@@ -82,11 +82,17 @@ class Graph(object):
         r_i = t_i[:2, :2]
         r_z = t_z[:2, :2]
 
-        a_ij = np.vstack((np.hstack((-r_z.T @ r_i.T, (r_z.T @ partial_det_rot_i.T) @ diffrence_tij)),
-                          [0, 0, -1]))
+        a_ij = np.vstack(
+            (
+                np.hstack((-r_z.T @ r_i.T, (r_z.T @ partial_det_rot_i.T) @ diffrence_tij)),
+                          [0, 0, -1])
+            )
 
-        b_ij = np.vstack((np.hstack((r_z.T @ r_i.T, np.zeros((2, 1)))),
-                          [0, 0, 1]))
+        b_ij = np.vstack(
+            (
+                np.hstack((r_z.T @ r_i.T, np.zeros((2, 1)))),
+                          [0, 0, 1])
+                          )
         return a_ij, b_ij
 
     def optimise(self, tresh = 1e-5, iter = 1000):
